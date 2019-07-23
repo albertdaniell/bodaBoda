@@ -6,10 +6,10 @@ import uuid
 class Rider(models.Model):
 	Name = models.CharField(max_length=300)
 	IDNo = models.IntegerField(primary_key=True )
-	DateofBirth = models.DateField(max_length=800)
+	DateofBirth = models.CharField(max_length=800)
 	Gender = models.CharField(max_length=100)
 	CountryCode = models.CharField(max_length=40)
-	PhoneNumber = models.IntegerField()
+	PhoneNumber = models.CharField(max_length=100)
 	County = models.CharField(max_length=100)
 	SubCounty = models.CharField(max_length=100)
 	Ward = models.CharField(max_length=100)
@@ -23,9 +23,9 @@ class Rider(models.Model):
 class Vehicle(models.Model):
 	Name = models.CharField(max_length=300)
 	IDNo = models.ForeignKey(Rider, on_delete=models.CASCADE)
-	FrameNumber= models.CharField(max_length=200)
+	FrameNumber= models.CharField(max_length=200,primary_key=True)
 	Make = models.CharField(max_length=200)
-	RegNumber = models.CharField(max_length=100 ,primary_key=True)
+	RegNumber = models.CharField(max_length=100 )
 	Ownership = models.CharField(max_length=100)
 
 	def __str__(self):
@@ -35,9 +35,9 @@ class Vehicle(models.Model):
 class Owner(models.Model):
 	Name = models.CharField(max_length=300)
 	IDNo  = models.CharField(max_length=200, blank=True, null=True)
-	RegNumber = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+	FrameNumber = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 	# FrameNumber= models.CharField(max_length=200)
-	PhoneNumber = models.IntegerField()
+	PhoneNumber = models.CharField(max_length=100)
 	
 	
 
@@ -46,10 +46,11 @@ class Owner(models.Model):
 
 class Insurance(models.Model):
 	Name = models.CharField(max_length=300)
-	IDNo = models.ForeignKey(Vehicle,  on_delete=models.CASCADE)
-	Registration = models.CharField(max_length=100)
-	InsuranceCompany = models.CharField(max_length=10,blank = True)
-	InsuranceExpiry = models.DateField(max_length=8,blank = True)
+	FrameNumber = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+	HasInsurance = models.CharField(max_length=100, blank=True, null=True)
+	# Registration = models.CharField(max_length=100)
+	InsuranceCompany = models.CharField(max_length=10,blank = True,null=True)
+	InsuranceExpiry = models.CharField(max_length=100,blank = True,null=True)
 	LicenseNumber = models.CharField(max_length=100)
 	# PhoneNumber = models.IntegerField(max_length=100)
 	
@@ -61,8 +62,8 @@ class Sacco(models.Model):
 	Name = models.CharField(max_length=300)
 	IDNo = models.ForeignKey(Rider,  on_delete=models.CASCADE)
 	Membership = models.CharField(max_length=100)
-	SaccoName = models.CharField(max_length=4,blank = True)
-	DailyContribution = models.IntegerField()
+	SaccoName = models.CharField(max_length=100,blank = True,null=True)
+	DailyContribution = models.IntegerField(blank = True,null=True)
 	# PhoneNumber = models.IntegerField(max_length=100)
 	
 	def __str__(self):

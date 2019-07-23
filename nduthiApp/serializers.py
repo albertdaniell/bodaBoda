@@ -8,7 +8,7 @@ class RiderSerializer(serializers.ModelSerializer):
 class OwnerSerializer(serializers.ModelSerializer):
     class Meta:
         model=Owner
-        fields=('id','Name','IDNo','PhoneNumber','RegNumber')
+        fields=('id','Name','IDNo','FrameNumber','PhoneNumber')
 class VehicleSerializer(serializers.ModelSerializer):
     class Meta:
         model=Vehicle
@@ -16,7 +16,7 @@ class VehicleSerializer(serializers.ModelSerializer):
 class InsuranceSerializer(serializers.ModelSerializer):
     class Meta:
         model=Insurance
-        fields=('id','Name','IDNo','Registration','InsuranceCompany','InsuranceExpiry','LicenseNumber')
+        fields=('id','Name','FrameNumber','HasInsurance','InsuranceCompany','InsuranceExpiry','LicenseNumber')
 class SaccoSerializer(serializers.ModelSerializer):
     class Meta:
         model=Sacco

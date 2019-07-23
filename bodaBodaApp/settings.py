@@ -25,7 +25,7 @@ SECRET_KEY = '2v&---u_$ndq)oahom*y-oi#19m$bb_=r$et3v!ms&-r=ldk=7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['178.128.217.18']
 
 
 # Application definition
@@ -125,3 +125,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+DATE_INPUT_FORMATS = ['%b %d %Y']
