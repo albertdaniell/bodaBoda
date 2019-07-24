@@ -96,7 +96,7 @@ def sacco_list(request):
 
     if(request.method == 'GET'):
         saccos=Sacco.objects.all()
-        serializer=RiderSerializer(saccos,many=True)
+        serializer=SaccoSerializer(saccos,many=True)
         return JsonResponse(serializer.data, safe=False)
     elif(request.method == 'POST'):
         # mydata={'message': 'Hello, world!'}
