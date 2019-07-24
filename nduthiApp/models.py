@@ -63,7 +63,7 @@ class Sacco(models.Model):
 	IDNo = models.ForeignKey(Rider,  on_delete=models.CASCADE)
 	Membership = models.CharField(max_length=100)
 	SaccoName = models.CharField(max_length=100,blank = True,null=True)
-	DailyContribution = models.IntegerField(blank = True,null=True)
+	DailyContribution = models.CharField(max_length=300,blank = True,null=True)
 	# PhoneNumber = models.IntegerField(max_length=100)
 	
 	def __str__(self):
