@@ -12,6 +12,6 @@ urlpatterns = [
     path('api/rider/<int:pk>/', views.rider_detail),
     path('api/owner/<FrameNumber>/', views.owner_detail),
     path('api/vehicle/<int:IDNo_id>/', views.vehicle_detail),
-    path('api/insurance/<int:pk>/', views.insurance_detail),
+    path('api/insurance/<FrameNumber>/', views.insurance_detail),
     path('api/sacco/<int:IDNo_id>/', views.sacco_detail)
 ]

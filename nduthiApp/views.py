@@ -198,12 +198,12 @@ def vehicle_detail(request, IDNo_id):
         return HttpResponse(status=204)
     
 @csrf_exempt
-def insurance_detail(request, pk):
+def insurance_detail(request, FrameNumber):
     """
     Retrieve, update or delete a code owner.
     """
     try:
-        insurance = Insurance.objects.get(pk=pk)
+        insurance = Insurance.objects.get(FrameNumber=FrameNumber)
     except Insurance.DoesNotExist:
         return HttpResponse(status=404)
 
