@@ -30,8 +30,8 @@ def payment_detail(request,phoneNumber):
         return HttpResponse(status=404)
 
     if request.method == 'GET':
-        serializer = LnmpOnline2Serializer(payments)
-        return JsonResponse(serializer.data)
+        serializer = LnmpOnline2Serializer(payments,many=True)
+        return JsonResponse(serializer.data , safe=False)
 
    
 
