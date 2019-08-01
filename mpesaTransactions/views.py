@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
-from .models import LnmpOnline2
+from .models import LnmpOnline
 from .serializers import LnmpOnline2Serializer
 
 # Create your views here.
