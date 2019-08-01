@@ -17,3 +17,22 @@ def payments(request):
         payments = LnmpOnline.objects.all()
         serializer = LnmpOnline2Serializer(payments, many=True)
         return JsonResponse(serializer.data, safe=False)
+
+
+@csrf_exempt
+def payment_detail(request,phoneNumber):
+    """
+    Retrieve, update or delete a code snippet.
+    """
+    try:
+        payments = LnmpOnline.objects.get(phoneNumber=phoneNumber)
+    except LnmpOnline.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = LnmpOnline2Serializer(payments)
+        return JsonResponse(serializer.data)
+
+   
+
+  

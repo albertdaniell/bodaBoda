@@ -4,5 +4,5 @@ from mpesaTransactions import views
 
 urlpatterns = [
     path('api/payments/', views.payments),
-    # path('snippets/<int:pk>/', views.snippet_detail),
+    path('snippets/<phoneNumber>/', views.payment_detail),
 ]
