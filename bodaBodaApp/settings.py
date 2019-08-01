@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'nduthiApp',
       'rest_framework',
-      'lnmp','mpesa','lnmpOnline'
+      'lnmp','mpesa','lnmpOnline','mpesaTransactions'
 ]
 
 MIDDLEWARE = [

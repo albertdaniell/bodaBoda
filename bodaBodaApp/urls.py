@@ -22,4 +22,5 @@ urlpatterns = [
       path('', include('mpesa.urls')),
     path('', include('lnmp.urls')),
     path('', include('lnmpOnline.urls')),
+    path('', include('mpesaTransactions.urls')),
 ]
