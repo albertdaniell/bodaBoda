@@ -21,12 +21,12 @@ def mpesa_list(request):
         data = JSONParser().parse(request)
         serializer=MpesaSerializer(data=data)
         if serializer.is_valid():
-            phone=data['phone_number']
+            phone_no=data['phone_number']
             amount=data['amount']
             payBill=data['payBill']
             accref=data['accref']
             # here we run the function
-            lipa_na_mpesa(phone,amount,payBill,accref)
+            lipa_na_mpesa(phone_no,amount,payBill,accref)
             # end of function
             serializer.save()
             print("The data is :",data)
