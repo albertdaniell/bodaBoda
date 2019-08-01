@@ -14,6 +14,6 @@ def payments(request):
     List all paymets
     """
     if request.method == 'GET':
-        payments = LnmpOnline2.objects.all()
+        payments = LnmpOnline.objects.all()
         serializer = LnmpOnline2Serializer(payments, many=True)
         return JsonResponse(serializer.data, safe=False)
