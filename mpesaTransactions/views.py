@@ -25,7 +25,7 @@ def payment_detail(request,phoneNumber):
     Retrieve, update or delete a code snippet.
     """
     try:
-        payments = LnmpOnline.objects.get(phoneNumber=phoneNumber)
+        payments = LnmpOnline.objects.filter(phoneNumber=phoneNumber)
     except LnmpOnline.DoesNotExist:
         return HttpResponse(status=404)
 
