@@ -3,6 +3,6 @@ from . import views
 
 urlpatterns = [
     path('api/leaders/', views.leaders_list),
-    path('api/leaders/<int:pk>/', views.leader_detail),
+    path('api/leaders/<Email>/', views.leader_detail),
     
 ]
