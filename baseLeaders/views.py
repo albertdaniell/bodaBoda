@@ -33,7 +33,7 @@ def leader_detail(request,pk):
     Retrieve, update or delete leader.
     """
     try:
-        leaders = BaseLeaders.objects.get(pk=pk)
+        leaders = BaseLeaders.objects.filter(pk=pk)
     except BaseLeaders.DoesNotExist:
         return HttpResponse(status=404)
 
