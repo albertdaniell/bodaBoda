@@ -35,8 +35,7 @@ def leader_detail(request,Email):
     try:
         leaders = BaseLeaders.objects.get(Email=Email)
     except BaseLeaders.DoesNotExist:
-        error='User does not exist',
-        return JsonResponse(error,status=404)
+        return HttpResponse(status=404)
 
     if request.method == 'GET':
         serializer = LeadersSerializer(leaders)
