@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import baseLeaders
+from .models import BaseLeaders
 from .serializers import LeadersSerializer
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -14,7 +14,7 @@ def leaders_list(request):
     List all code leader, or register
     """
     if request.method == 'GET':
-        leaders = baseLeaders.objects.all()
+        leaders = BaseLeaders.objects.all()
         serializer = LeadersSerializer(leaders, many=True)
         return JsonResponse(serializer.data, safe=False)
 
@@ -33,8 +33,8 @@ def leader_detail(request,pk):
     Retrieve, update or delete leader.
     """
     try:
-        leaders = baseLeaders.objects.get(pk=pk)
-    except baseLeaders.DoesNotExist:
+        leaders = BaseLeaders.objects.get(pk=pk)
+    except BaseLeaders.DoesNotExist:
         return HttpResponse(status=404)
 
     if request.method == 'GET':

@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import baseLeaders
+from .models import BaseLeaders
 # Register your models here.
-admin.site.register(baseLeaders)
+admin.site.register(BaseLeaders)

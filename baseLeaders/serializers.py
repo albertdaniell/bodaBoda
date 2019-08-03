@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import baseLeaders
+from .models import BaseLeaders
 
 
 class LeadersSerializer(serializers.ModelSerializer):
     class Meta:
-        model=baseLeaders
+        model=BaseLeaders
         fields=('id','Name','Email','date','phone_number')
