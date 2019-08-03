@@ -28,12 +28,12 @@ def leaders_list(request):
     
     
 @csrf_exempt
-def leader_detail(request,Email):
+def leader_detail(request,pk):
     """
     Retrieve, update or delete leader.
     """
     try:
-        leaders = baseLeaders.objects.get(Email=Email)
+        leaders = baseLeaders.objects.get(pk=pk)
     except baseLeaders.DoesNotExist:
         return HttpResponse(status=404)
 
