@@ -33,12 +33,26 @@ def leader_detail(request,pk):
     Retrieve, update or delete leader.
     """
     try:
-        leaders = BaseLeaders.objects.filter(pk=pk)
+        leaders = BaseLeaders.objects.get(pk=pk)
     except BaseLeaders.DoesNotExist:
         return HttpResponse(status=404)
 
     if request.method == 'GET':
-        serializer = LeadersSerializer(leaders,many=True)
-        return JsonResponse(serializer.data , safe=False)
+        serializer = LeadersSerializer(leaders)
+        return JsonResponse(serializer.data)
 
+
+# @csrf_exempt
+# def sacco_detail(request, IDNo_id):
+#     """
+#     Retrieve, update or delete a sacco.
+#     """
+#     try:
+#         sacco = Sacco.objects.get(IDNo_id=IDNo_id)
+#     except Sacco.DoesNotExist:
+#         return HttpResponse(status=404)
+
+#     if request.method == 'GET':
+#         serializer = SaccoSerializer(sacco)
+#         return JsonResponse(serializer.data)
    
