@@ -28,7 +28,7 @@ def leaders_list(request):
     
     
 @csrf_exempt
-def leader_detail(request,phoneNumber):
+def leader_detail(request,Email):
     """
     Retrieve, update or delete leader.
     """
