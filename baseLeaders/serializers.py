@@ -5,4 +5,4 @@ from .models import baseLeaders
 class LeadersSerializer(serializers.ModelSerializer):
     class Meta:
         model=baseLeaders
-        fields=('Name','Email','date','phone_number')
+        fields=('id','Name','Email','date','phone_number')
