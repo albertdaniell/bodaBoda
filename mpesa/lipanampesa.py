@@ -103,4 +103,4 @@ def lipa_na_mpesa(phone_no,amount,payBill,accref):
 
 
 
-# lipa_na_mpesa()
+lipa_na_mpesa()
