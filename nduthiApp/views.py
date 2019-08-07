@@ -12,6 +12,7 @@ def rider_list(request):
 
     if(request.method == 'GET'):
         riders=Rider.objects.all()
+        # convert to json
         serializer=RiderSerializer(riders,many=True)
         return JsonResponse(serializer.data, safe=False)
     elif(request.method == 'POST'):
