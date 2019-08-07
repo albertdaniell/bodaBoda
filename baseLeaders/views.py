@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import BaseLeaders
-from .serializers import LeadersSerializer
+from .models import BaseLeaders,Base
+from .serializers import LeadersSerializer,BaseSerializer
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
@@ -40,6 +40,26 @@ def leader_detail(request,Email):
     if request.method == 'GET':
         serializer = LeadersSerializer(leaders)
         return JsonResponse(serializer.data)
+    
+
+
+@csrf_exempt
+def base_list(request):
+    """
+    List all bases, or register base
+    """
+    if request.method == 'GET':
+        bases = Base.objects.all()
+        serializer = BaseSerializer(bases, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = BaseSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
 
 
 # @csrf_exempt
