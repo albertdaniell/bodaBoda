@@ -16,5 +16,5 @@ class BaseLeaders(models.Model):
 class Base(models.Model):
     Name=models.CharField( max_length=200)
     date=models.DateField(default=timezone.now)
-    base_leader=models.ForeignKey(BaseLeaders)
+    base_leader=models.ForeignKey(BaseLeaders, on_delete=models.CASCADE)
 
