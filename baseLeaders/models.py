@@ -12,3 +12,9 @@ class BaseLeaders(models.Model):
     password=models.CharField(max_length=50)
     def __str__(self):
         return self.Name
+    
+class Base(models.Model):
+    Name=models.CharField( max_length=200)
+    date=models.DateField(default=timezone.now)
+    boda_leader=models.ForeignKey(BaseLeaders)
+
