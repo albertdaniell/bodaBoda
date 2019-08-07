@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class BaseLeaders(models.Model):
     Name = models.CharField(max_length=50)
-    Email = models.CharField(max_length=50)
+    Email = models.CharField(max_length=50,unique=True)
     date=models.DateField(default=timezone.now)
     phone_number=models.CharField(max_length=50)
     password=models.CharField(max_length=50)
