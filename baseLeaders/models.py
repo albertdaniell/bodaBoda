@@ -18,5 +18,5 @@ class Base(models.Model):
     Name=models.CharField( max_length=200)
     date=models.DateField(default=timezone.now)
     base_leader=models.ForeignKey(BaseLeaders, on_delete=models.CASCADE)
-    base_code=models.UUIDField(unique=True)
+    base_code=models.UUIDField(unique=True ,default=uuid.uuid4, editable=False)
 
