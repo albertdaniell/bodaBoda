@@ -13,7 +13,7 @@ class Rider(models.Model):
 	County = models.CharField(max_length=100)
 	SubCounty = models.CharField(max_length=100)
 	Ward = models.CharField(max_length=100)
-	BaseName = models.CharField(max_length=100)
+	BaseName = models.ForeignKey("baseLeaders.Base", on_delete=models.CASCADE)
 	YearsOfExperience = models.IntegerField()
 
 	def __str__(self):
