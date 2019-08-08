@@ -56,11 +56,6 @@ class LNMPList(CreateAPIView):
         print("************************************************************************************************************************************************************************")
 
         print(request.data)
-        accountRef=request.data['accref']
-        accountRefId=request.data['accrefId']
-        print(accountRef)
-        print(accountRefId)
-        payBill=request.data.payBill
         serializer = LnmpOnlineSerializer(data=request.data)
         data=request.data
         testcode=(data['Body']['stkCallback']['ResultCode'])
@@ -128,10 +123,7 @@ class LNMPList(CreateAPIView):
             transactionDate=TransactionDate,
             mpesaReceiptNumber=mpesa_receipt_number,        
             phoneNumber=PhoneNumber,
-            amount=Amount,
-            payBill=payBill,
-            accountRef=accountRef,
-            accountRefId= accountRefId
+            amount=Amount
 
         )
         model.save()
