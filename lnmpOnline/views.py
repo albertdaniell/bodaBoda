@@ -56,8 +56,10 @@ class LNMPList(CreateAPIView):
         print("************************************************************************************************************************************************************************")
 
         print(request.data)
-        accountRef=request.data.accref
-        accountRefId=request.data.accrefId
+        accountRef=request.data['accref']
+        accountRefId=request.data['accrefId']
+        print(accountRef)
+        print(accountRefId)
         payBill=request.data.payBill
         serializer = LnmpOnlineSerializer(data=request.data)
         data=request.data
