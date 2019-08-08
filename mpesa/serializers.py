@@ -6,6 +6,8 @@ class MpesaSerializer(serializers.Serializer):
     phone_number = serializers.CharField(required=False, allow_blank=True, max_length=100)
     amount = serializers.CharField(required=False, allow_blank=True, max_length=100)
     payBill = serializers.CharField(required=False, allow_blank=True, max_length=100)
+    accountRef = serializers.CharField(required=False, allow_blank=True, max_length=100)
+    accountRefId = serializers.CharField(required=False, allow_blank=True, max_length=100)
     
 
 
@@ -22,6 +24,8 @@ class MpesaSerializer(serializers.Serializer):
         instance.phone_number = validated_data.get('title', instance.title)
         instance.amount = validated_data.get('title', instance.amount)
         instance.payBill = validated_data.get('title', instance.payBill)
+        instance.accountRef = validated_data.get('title', instance.accountRef)
+        instance.accountRefId = validated_data.get('title', instance.accountRefId)
         # instance.phone_number = validated_data.get('title', instance.title)
         
         instance.save()

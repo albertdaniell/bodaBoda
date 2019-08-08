@@ -9,6 +9,8 @@ class Mpesa(models.Model):
     phone_number = models.CharField(max_length=100, blank=True, default='')
     amount = models.CharField(max_length=100, blank=True, default='')
     payBill = models.CharField(max_length=100, blank=True, default='')
+    accountRefId=models.CharField(max_length=100)
+    accountRef=models.CharField(max_length=100)
     
     class Meta:
         ordering = ('created',)
