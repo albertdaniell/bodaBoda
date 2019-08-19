@@ -44,6 +44,24 @@ def leader_detail(request,Email):
 
 
 @csrf_exempt
+def leader_detail2(request,id):
+    """
+    Retrieve, update or delete leader.
+    """
+    try:
+        leaders = BaseLeaders.objects.get(id=id)
+    except BaseLeaders.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = LeadersSerializer(leaders)
+        return JsonResponse(serializer.data)
+        
+    
+    
+
+
+@csrf_exempt
 def base_list(request):
     """
     List all bases, or register base
