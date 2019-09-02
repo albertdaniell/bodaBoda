@@ -74,7 +74,7 @@ def base_detail2(request,base_leader):
         serializer = BaseSerializer(bases)
         return JsonResponse(serializer.data)
     
-    @csrf_exempt
+@csrf_exempt
 def base_detail(request,id):
     """
     Retrieve, update or delete leader.
