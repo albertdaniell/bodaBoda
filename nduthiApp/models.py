@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from baseLeaders.models import Base
 
 # Create your models here.
 
@@ -13,7 +14,7 @@ class Rider(models.Model):
 	County = models.CharField(max_length=100)
 	SubCounty = models.CharField(max_length=100)
 	Ward = models.CharField(max_length=100)
-	BaseName = models.ForeignKey("baseLeaders.Base", on_delete=models.CASCADE)
+	BaseName = models.ForeignKey(Base, on_delete=models.CASCADE)
 	YearsOfExperience = models.IntegerField()
 
 	def __str__(self):
