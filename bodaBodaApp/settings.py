@@ -38,8 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'nduthiApp',
-      'rest_framework',
-      'lnmp','mpesa','lnmpOnline','mpesaTransactions','baseLeaders'
+    'rest_framework',
+    'lnmp',
+    'mpesa',
+    'lnmpOnline',
+    'mpesaTransactions',
+    'baseLeaders'
 ]
 
 MIDDLEWARE = [

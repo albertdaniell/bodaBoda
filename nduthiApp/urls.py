@@ -10,6 +10,7 @@ urlpatterns = [
     # path('api/restaurant_food/', views.restaurants_food),
     # path('api/restaurants/<int:pk>/', views.restaurant_detail),
     path('api/rider/<int:pk>/', views.rider_detail),
+    path('api/rider2/<BaseName>/', views.rider_detail2),
     path('api/owner/<FrameNumber>/', views.owner_detail),
     path('api/vehicle/<int:IDNo_id>/', views.vehicle_detail),
     path('api/insurance/<FrameNumber>/', views.insurance_detail),

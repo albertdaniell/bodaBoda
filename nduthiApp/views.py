@@ -143,7 +143,21 @@ def rider_detail(request, pk):
         riders.delete()
         return HttpResponse(status=204)
     
+@csrf_exempt
+def rider_detail2(request, BaseName):
+    """
+    Retrieve, update or delete a code rider.
+    """
+    try:
+        riders = Rider.objects.filter(BaseName=BaseName)
+    except Rider.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = RiderSerializer(riders,many=True)
+        return JsonResponse(serializer.data, safe=False)
     
+     
     
 @csrf_exempt
 def owner_detail(request, FrameNumber):
