@@ -73,6 +73,20 @@ def base_detail2(request,base_leader):
     if request.method == 'GET':
         serializer = BaseSerializer(bases)
         return JsonResponse(serializer.data)
+    
+    @csrf_exempt
+def base_detail(request,id):
+    """
+    Retrieve, update or delete leader.
+    """
+    try:
+        bases = Base.objects.get(id=id)
+    except Base.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = BaseSerializer(bases)
+        return JsonResponse(serializer.data)
         
 
 @csrf_exempt
