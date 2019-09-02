@@ -60,6 +60,20 @@ def leader_detail2(request,id):
     
     
 
+@csrf_exempt
+def base_detail2(request,base_leader):
+    """
+    Retrieve, update or delete leader.
+    """
+    try:
+        bases = Base.objects.get(base_leader=base_leader)
+    except Base.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = BaseSerializer(bases)
+        return JsonResponse(serializer.data)
+        
 
 @csrf_exempt
 def base_list(request):
