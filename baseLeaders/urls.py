@@ -7,6 +7,6 @@ urlpatterns = [
     path('api/leaders2/<int:id>/', views.leader_detail2),
     path('api/bases/', views.base_list),
     path('api/bases/<int:id>/', views.base_detail),
-    path('api/bases/<base_leader>/', views.base_detail2),
+    path('api/bases1/<base_leader>/', views.base_detail2),
     
 ]
