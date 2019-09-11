@@ -6,7 +6,7 @@ from baseLeaders.models import Base
 
 class Rider(models.Model):
 	Name = models.CharField(max_length=300)
-	IDNo = models.IntegerField(primary_key=True )
+	IDNo = models.IntegerField(primary_key=True)
 	DateofBirth = models.CharField(max_length=800)
 	Gender = models.CharField(max_length=100)
 	CountryCode = models.CharField(max_length=40)
@@ -50,7 +50,7 @@ class Insurance(models.Model):
 	FrameNumber = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 	HasInsurance = models.CharField(max_length=100, blank=True, null=True)
 	# Registration = models.CharField(max_length=100)
-	InsuranceCompany = models.CharField(max_length=10,blank = True,null=True)
+	InsuranceCompany = models.CharField(max_length=100,blank = True,null=True)
 	InsuranceExpiry = models.CharField(max_length=100,blank = True,null=True)
 	LicenseNumber = models.CharField(max_length=100)
 	# PhoneNumber = models.IntegerField(max_length=100)
