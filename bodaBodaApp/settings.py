@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'bodaBodaApp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bodaboda2',
+        'NAME': 'myproject',
         'USER': 'aurasafira',
         'PASSWORD': '1234pass',
         'HOST': 'localhost',
