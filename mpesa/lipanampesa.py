@@ -108,4 +108,4 @@ def lipa_na_mpesa(phone_no='254791836987',amount=20,payBill=keys.businessShortCo
 
 
 
-lipa_na_mpesa()
+#lipa_na_mpesa()
