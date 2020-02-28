@@ -5,7 +5,11 @@ import time
 import requests
 from requests.auth import HTTPBasicAuth
 import mpesa.keys as keys
-import mpesa.access_tk as access_tk
+
+"""
+# from . access_tk import access_tk as access_tk
+
+"""
 #print(datetime.datetime.now())
 
 # get access token

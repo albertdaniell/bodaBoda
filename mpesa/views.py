@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
-from mpesa.models import Mpesa
-from mpesa.serializers import MpesaSerializer
-from  mpesa.lipanampesa import lipa_na_mpesa
+from . models import Mpesa
+from . serializers import MpesaSerializer
+from . lipanampesa import lipa_na_mpesa
 
 # Create your views here.
 @csrf_exempt

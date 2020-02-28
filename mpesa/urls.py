@@ -1,5 +1,5 @@
 from django.urls import path
-from mpesa import views
+from . import views
 
 urlpatterns = [
     path('mpesa/', views.mpesa_list),
