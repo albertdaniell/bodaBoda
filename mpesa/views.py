@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from . models import Mpesa
 from . serializers import MpesaSerializer
-from . lipanampesa import lipa_na_mpesa
+from lipanampesa import lipa_na_mpesa
 
 # Create your views here.
 @csrf_exempt
@@ -13,11 +13,13 @@ def mpesa_list(request):
     List  all mpesa calls
     """
     if request.method =="GET":
+        print("READING MPESA")
         mpesas=Mpesa.objects.all()
         serializer=MpesaSerializer(mpesas,many=True)
         return JsonResponse(serializer.data, safe=False)
     
     elif request.method =="POST":
+        print("MAKING MPESA PAYMENT")
         data = JSONParser().parse(request)
         serializer=MpesaSerializer(data=data)
         if serializer.is_valid():
