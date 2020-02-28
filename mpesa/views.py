@@ -34,7 +34,9 @@ def mpesa_list(request):
             print("about to run the mpesa function")
             lipa_na_mpesa(phone_no,amount,payBill,accref)
             # end of function
+            """
             serializer.save()
+            """
             print("The data is :",data)
             print(request)
             return JsonResponse(serializer.data, status=201)
