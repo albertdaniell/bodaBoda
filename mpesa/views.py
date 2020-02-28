@@ -37,5 +37,7 @@ def mpesa_list(request):
             print("The data is :",data)
             print(request)
             return JsonResponse(serializer.data, status=201)
+        else:
+            print("Some shit went wrong!")
         return JsonResponse (serializer.errors, status=400)
 
