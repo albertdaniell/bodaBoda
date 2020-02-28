@@ -95,7 +95,7 @@ def lipa_na_mpesa(phone_no='254791836987',amount=20,payBill=keys.businessShortCo
     # print ("This is the response",response.text)
     parsed_data = json.loads(response.text)
     print (response.text)
-    print ("The response code =",parsed_data['ResponseCode'])
+    # print ("The response code =",parsed_data['ResponseCode'])
     ResponseCode=parsed_data['ResponseCode']
     return ResponseCode
 
@@ -108,4 +108,4 @@ def lipa_na_mpesa(phone_no='254791836987',amount=20,payBill=keys.businessShortCo
 
 
 
-#lipa_na_mpesa()
+lipa_na_mpesa()
