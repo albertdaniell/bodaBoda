@@ -82,7 +82,7 @@ def lipa_na_mpesa(phone_no,amount,payBill,accref):
     "PartyA": phone_no,
     "PartyB":keys.partB,  
     "PhoneNumber": phone_no,  
-    "CallBackURL": "http://134.209.148.107/lnmpOnline/",  
+    "CallBackURL": "http://134.209.148.107/lnmp/",  
     "AccountReference": accref,
     "TransactionDesc": "fee payment"
     }
