@@ -4,9 +4,10 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from . models import Mpesa
 from . serializers import MpesaSerializer
-from lipanampesa import lipa_na_mpesa
+from . lipanampesa import lipa_na_mpesa
 
 # Create your views here.
+print("mpesa initialization")
 @csrf_exempt
 def mpesa_list(request):
     """"
