@@ -97,7 +97,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'myproject',
-        'USER': 'aurasafira',
+        'USER': 'aursafira',
         'PASSWORD': '1234pass',
         'HOST': 'localhost',
         'PORT': '',
