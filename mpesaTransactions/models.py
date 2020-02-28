@@ -8,7 +8,7 @@ class LnmpOnline2(models.Model):
     resultCode=models.IntegerField()
     resultDesc= models.CharField(max_length=200)
     amount=models.FloatField()
-    mpesaReceiptNumber=models.CharField(max_length=50)
+    mpesaReceiptNumber=models.CharField(max_length=150)
     transactionDate=models.DateTimeField()
     phoneNumber= models.CharField(max_length=15)
 

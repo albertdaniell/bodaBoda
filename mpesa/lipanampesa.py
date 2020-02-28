@@ -61,7 +61,7 @@ decoded_pass=encoded_string.decode('utf8')
     #print (r.json())
 
 
-def lipa_na_mpesa(phone_no,amount,payBill,accref):
+def lipa_na_mpesa(phone_no='254791836987',amount=20,payBill=keys.businessShortCode,accref='Wasafi crocs'):
     print("making payments")
     consumer_key = keys.ConsumerKey
     consumer_secret =keys.ConsumerSecret
