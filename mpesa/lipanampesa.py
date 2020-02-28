@@ -62,6 +62,7 @@ decoded_pass=encoded_string.decode('utf8')
 
 
 def lipa_na_mpesa(phone_no,amount,payBill,accref):
+    print("making payments")
     consumer_key = keys.ConsumerKey
     consumer_secret =keys.ConsumerSecret
     api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
@@ -82,7 +83,7 @@ def lipa_na_mpesa(phone_no,amount,payBill,accref):
     "PartyA": phone_no,
     "PartyB":keys.partB,  
     "PhoneNumber": phone_no,  
-    "CallBackURL": "http://134.209.148.107/lnmp/",  
+    "CallBackURL": "http://134.209.148.107/lnmpOnline/",  
     "AccountReference": accref,
     "TransactionDesc": "fee payment"
     }
