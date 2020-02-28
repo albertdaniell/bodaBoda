@@ -6,7 +6,6 @@ from . models import Mpesa
 from . serializers import MpesaSerializer
 from . lipanampesa import lipa_na_mpesa
 
-lipa_na_mpesa()
 # Create your views here.
 print("mpesa initialization")
 @csrf_exempt

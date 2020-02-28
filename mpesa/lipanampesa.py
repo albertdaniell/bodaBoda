@@ -4,7 +4,7 @@ import json
 import time
 import requests
 from requests.auth import HTTPBasicAuth
-import mpesa.keys as keys
+
 
 """
 # from . access_tk import access_tk as access_tk
@@ -15,12 +15,20 @@ import mpesa.keys as keys
 # get access token
 
 
+businessShortCode="174379" #lipa na mpesa short code
+partA='254791836987'
+partB=businessShortCode
+ConsumerKey='I7qtM5EaaF50VJr4Rn3BJQ7vHAwnsdpx'
+ConsumerSecret='UWfpwANAfGMMHL2v'
+lipa_na_mpesa_passkey='bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+shortcode1='601360'
+
 
 # time.sleep(2)
 
 def generateToken():
-    consumer_key = keys.ConsumerKey
-    consumer_secret =keys.ConsumerSecret
+    consumer_key = ConsumerKey
+    consumer_secret =ConsumerSecret
     api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
 
     r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
@@ -46,7 +54,7 @@ formatted_time=unformated_time.strftime("%Y%m%d%H%M%S")
 
 
 
-data_to_encode=keys.businessShortCode + keys.lipa_na_mpesa_passkey + formatted_time
+data_to_encode=businessShortCode + lipa_na_mpesa_passkey + formatted_time
 encoded_string=base64.b64encode(data_to_encode.encode())
 
 decoded_pass=encoded_string.decode('utf8')
@@ -61,10 +69,10 @@ decoded_pass=encoded_string.decode('utf8')
     #print (r.json())
 
 
-def lipa_na_mpesa(phone_no='254791836987',amount=20,payBill=keys.businessShortCode,accref='Wasafi crocs'):
+def lipa_na_mpesa(phone_no='254791836987',amount=20,payBill=businessShortCode,accref='Wasafi crocs'):
     print("making payments")
-    consumer_key = keys.ConsumerKey
-    consumer_secret =keys.ConsumerSecret
+    consumer_key = ConsumerKey
+    consumer_secret =ConsumerSecret
     api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
     r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
     json_res=r.json()
@@ -81,7 +89,7 @@ def lipa_na_mpesa(phone_no='254791836987',amount=20,payBill=keys.businessShortCo
     "TransactionType": "CustomerPayBillOnline",
     "Amount": amount,
     "PartyA": phone_no,
-    "PartyB":keys.partB,  
+    "PartyB":partB,  
     "PhoneNumber": phone_no,  
     "CallBackURL": "http://134.209.148.107/lnmpOnline/",  
     "AccountReference": accref,
