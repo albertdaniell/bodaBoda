@@ -34,6 +34,8 @@ def generateToken():
     r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
     json_res=r.json()
     myaccess_token=json_res['access_token']
+    print(myaccess_token)
+    return myaccess_token
 
 
 
@@ -71,17 +73,13 @@ decoded_pass=encoded_string.decode('utf8')
 
 def lipa_na_mpesa(phone_no='254791836987',amount=20,payBill=businessShortCode,accref='Wasafi crocs'):
     print("making payments")
-    consumer_key = ConsumerKey
-    consumer_secret =ConsumerSecret
-    api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
-    r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
-    json_res=r.json()
-    myaccess_token=json_res['access_token']
+    myaccess_token=generateToken()
 
     
     access_token = myaccess_token
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
     headers = { "Authorization": "Bearer %s" % access_token }
+    
     request = {
     "BusinessShortCode": payBill,
     "Password": decoded_pass,
@@ -115,5 +113,5 @@ def lipa_na_mpesa(phone_no='254791836987',amount=20,payBill=businessShortCode,ac
 
 
 
-
+# generateToken()
 lipa_na_mpesa()
