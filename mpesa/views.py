@@ -22,7 +22,9 @@ def mpesa_list(request):
     elif request.method =="POST":
         print("MAKING MPESA PAYMENT")
         data = JSONParser().parse(request)
+        print("DATA FOR PAYMENTS {}".format(data))
         serializer=MpesaSerializer(data=data)
+        print(serializer)
         if serializer.is_valid():
             phone_no=data['phone_number']
             amount=data['amount']
