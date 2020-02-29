@@ -75,10 +75,11 @@ def lipa_na_mpesa(phone_no='254791836987',amount=20,payBill=businessShortCode,ac
     print("making payments")
     myaccess_token=generateToken()
 
-    
+    print("generated access token {}".format(myaccess_token))
     access_token = myaccess_token
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
     headers = { "Authorization": "Bearer %s" % access_token }
+    print("Passed the api url line")
     
     request = {
     "BusinessShortCode": payBill,
@@ -95,6 +96,7 @@ def lipa_na_mpesa(phone_no='254791836987',amount=20,payBill=businessShortCode,ac
     }
 
     
+    print("About to get the response")
 
     response = requests.post(api_url, json = request, headers=headers)
 
@@ -103,6 +105,7 @@ def lipa_na_mpesa(phone_no='254791836987',amount=20,payBill=businessShortCode,ac
     print (response.text)
     # print ("The response code =",parsed_data['ResponseCode'])
     ResponseCode=parsed_data['ResponseCode']
+    print("The response code is {}".format(ResponseCode))
     return ResponseCode
 
 """
