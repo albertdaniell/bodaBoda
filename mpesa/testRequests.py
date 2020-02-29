@@ -1,4 +1,5 @@
 from requests.auth import HTTPBasicAuth
+import requests
 
 businessShortCode="174379" #lipa na mpesa short code
 partA='254791836987'
